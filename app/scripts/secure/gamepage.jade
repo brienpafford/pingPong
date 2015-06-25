@@ -1,1 +1,40 @@
 h3 GAME ON
+
+//- h4 Save a new Game Below
+form.col-sm-6.form-horizontal(action="http://localhost.testing/modal-processing.php", role="form", method="GET")
+  label
+    | Opponent
+    span.mandatory *
+    select#landlord_id.form-control.input-sm.chosen.chzn-select(tabindex="1", data-placeholder="Choose an Opponent", data-rule-required="true", name="landlord_id")
+      option(value="")
+      option(value="1") Noah
+      option(value="4") Caleb
+      option(value="5") Scott
+      option(value="6") Chad
+      option(value="7") Greg
+      option(value="8") Kyle
+      option(value="9") Matt
+form(ng-submit="saveGame()")
+  .form-group
+    label Your Score
+    input.form-control(type="text", ng-model="user.score", placeholder="21")
+  .form-group
+    label Opponent Score
+    input.form-control(type="text", ng-model="opponent.score", placeholder="18")
+  button.btn.btn-warning.saveGame(type="submit") Save Game Score
+
+
+  // modal caller
+//-   a.modal-toggle(href="#modal-dialog", data-toggle="modal", data-href="http://localhost.testing/modal-processing.php", data-modal-type="confirm", data-modal-title="Delete Property", data-modal-text="Are you sure you want to delete {$property.address_string}?", data-modal-confirm-url="{$base_url}residential-lettings/properties/do-delete/property/{$property.id}")
+//-     i.icon-trash
+//- #modal-dialog.modal
+//-   .modal-dialog
+//-     .modal-content
+//-       .modal-header
+//-         a.close(href="#", data-dismiss="modal", aria-hidden="true") &#215;
+//-         h3 Are you sure
+//-       .modal-body
+//-         p Do you want to submit the form?
+//-       .modal-footer
+//-         a#btnYes.btn.confirm(href="#") Yes
+//-         a.btn.secondary(href="#", data-dismiss="modal", aria-hidden="true") No

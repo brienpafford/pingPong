@@ -26,11 +26,12 @@ app.service('authService', function($firebase, FBURL){
   };
 
   this.createUser = function(user, cb) {
-    ref.createUser(user, function(err) {
+    ref.createUser(user, function(err, authData) {
+      console.log(authData)
       if (err) {
         switch (err.code) {
           case "EMAIL_TAKEN":
-            console.log("The new user account cannot be created because the email is already in use.");
+            alert("The new user account cannot be created because the email is already in use.");
             break;
           case "INVALID_EMAIL":
             alert("The specified email is not a valid email.");
@@ -44,8 +45,8 @@ app.service('authService', function($firebase, FBURL){
               email: user.email,
               uid: authData.uid,
               token: authData.token
-            });
-          }, cb);
+            }, cb);
+          });
       }
     }.bind(this));
   };
@@ -53,7 +54,7 @@ app.service('authService', function($firebase, FBURL){
   this.loginWithPW = function(userObj, cb, cbOnRegister){
     ref.authWithPassword(userObj, function(err, authData){
       if(err){
-        console.log('Error on login:', err.message);
+        alert('The specified user does not exist.');
         cbOnRegister && cbOnRegister(false);
       } else {
         authData.email = userObj.email;

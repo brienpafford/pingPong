@@ -59,3 +59,16 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'ProfileCtrl'
     });
 });
+
+////////////// DATA POSTING ///////////
+
+
+function saveAuthData (authData) {
+  $.ajax({
+    method: 'POST',
+    url: `${FBURL}/users/${authData.uid}/profile.json?auth=${authData.token}`,
+    data: JSON.stringify(authData)
+  });
+
+}
+
