@@ -13,7 +13,7 @@ app.controller('RegisterCtrl', function($scope, $state, authService){
 
     authService.createUser(userObj, function(result){
       if(result){
-        $state.go('secure.dashboard');
+        $state.go('secure.profile');
       }
     });
   };

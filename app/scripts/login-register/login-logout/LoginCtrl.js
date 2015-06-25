@@ -12,7 +12,7 @@ app.controller('LoginCtrl', function($scope, $state, authService){
     $scope.user.pw = '';
 
     authService.loginWithPW(userObj, function(){
-      $state.go('secure.dashboard');
+      $state.go('secure.profile');
     });
   };
 });

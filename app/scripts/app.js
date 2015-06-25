@@ -41,9 +41,21 @@ app.config(function($stateProvider, $urlRouterProvider){
         }
       }
     })
-    .state('secure.dashboard', {
-      url: '/dashboard',
-      templateUrl: 'scripts/secure/dashboard.html',
-      controller: 'DashboardCtrl'
+    .state('gamepage', {
+      url: '/gamepage',
+      templateUrl: 'scripts/secure/gamepage.html',
+      controller: 'GPCtrl'
+    })
+
+    .state('trophyroom', {
+      url: '/trophyroom',
+      templateUrl: 'scripts/secure/trophyroom.html',
+      controller: 'TRCtrl'
+    })
+
+    .state('secure.profile', {
+      url: '/profile',
+      templateUrl: 'scripts/secure/profile.html',
+      controller: 'ProfileCtrl'
     });
 });

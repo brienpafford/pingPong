@@ -6,8 +6,12 @@ nav.navbar.navbar-default.navbar-static-top
     ul.nav.navbar-nav.pull-right
       li
         a(ui-sref="home")  Home
-      li
-        a(ui-sref="secure.dashboard")  Dashboard
+      li(ng-show="user")
+        a(ui-sref="secure.profile")  Profile
+      li(ng-show="user")
+        a(ui-sref="gamepage")  Game Page
+      li(ng-show="user")
+        a(ui-sref="trophyroom") Trophy Room
       li(ng-show="!user")
         a(ui-sref="register")  Register
       li(ng-show="!user")

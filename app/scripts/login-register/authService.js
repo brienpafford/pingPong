@@ -33,10 +33,10 @@ app.service('authService', function($firebase, FBURL){
             console.log("The new user account cannot be created because the email is already in use.");
             break;
           case "INVALID_EMAIL":
-            console.log("The specified email is not a valid email.");
+            alert("The specified email is not a valid email.");
             break;
           default:
-            console.log("Error creating user:", err);
+            alert("Error creating user:", err);
         }
       } else {
           this.loginWithPW(user, function(authData){
