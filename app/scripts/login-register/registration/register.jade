@@ -1,0 +1,10 @@
+h1.text-center  Register
+.col-sm-6.col-sm-offset-3
+  form(ng-submit="register()")
+    .form-group
+      label  Email
+      input.form-control(type="text", ng-model="user.email", placeholder="Email")
+    .form-group
+      label Password
+      input.form-control(type="password", ng-model="user.pw", placeholder="Password")
+    button.btn.btn-primary(type="submit") Submit

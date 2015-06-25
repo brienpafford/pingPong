@@ -1,0 +1,57 @@
+{
+  "name": "ping-pong",
+  "version": "0.0.2",
+  "description": "Ping Pong score tracker and ranking system",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pafford14/pingPong.git"
+  },
+  "author": "Brien Pafford <bcpaff@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pafford14/pingPong/issues"
+  },
+  "homepage": "https://github.com/pafford14/pingPong#readme",
+  "devDependencies": {
+    "autoprefixer-core": "^5.1.7",
+    "babel": "^5.5.8",
+    "bowcat": "0.0.5",
+    "browser-sync": "^2.7.6",
+    "del": "^1.1.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-babel": "^5.1.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-copy": "0.0.2",
+    "gulp-jade": "^1.0.1",
+    "gulp-jshint": "^1.5.5",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-minify-css": "^0.3.4",
+    "gulp-plumber": "^1.0.0",
+    "gulp-postcss": "^5.1.8",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-useref": "^1.2.0",
+    "gulp-util": "^3.0.1",
+    "gulp-watch": "^4.2.4",
+    "gulp-webserver": "^0.9.1",
+    "http-server": "^0.8.0",
+    "jade": "^1.10.0",
+    "jquery": "^2.1.3",
+    "jshint-summary": "^0.3.0",
+    "load-grunt-tasks": "^3.2.0",
+    "lodash": "^2.4.1",
+    "main-bower-files": "^2.8.0",
+    "node-sass": "^3.1.2",
+    "nodemon": "^1.3.7",
+    "wiredep": "^2.2.2"
+  }
+}
