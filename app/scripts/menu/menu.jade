@@ -3,16 +3,28 @@ nav.blue.darken-3
     .nav-wrapper
       ul.nav.navbar-nav.pull-right
         li
-          a(ui-sref="home") Home
+          a.waves-effect.waves-light(ui-sref="home") Home
         li(ng-show="user")
-          a(ui-sref="secure.profile") Profile
+          a.waves-effect.waves-light(ui-sref="secure.profile") Profile
         li(ng-show="user")
-          a(ui-sref="gamepage") Game Page
+          a.waves-effect.waves-light(ui-sref="gamepage") Game Page
         li(ng-show="user")
-          a(ui-sref="trophyroom") Trophy Room
+          a.waves-effect.waves-light(ui-sref="trophyroom") Trophy Room
         li(ng-show="!user")
-          a(ui-sref="register") Register
+          a.waves-effect.waves-light(ui-sref="register") Register
         li(ng-show="!user")
-          a(ui-sref="login") Login
+          a.waves-effect.waves-light(ui-sref="login") Login
         li(ng-show="user")
           a(ui-sref="logout") Logout
+
+
+//- nav
+//-   .container
+//-     .nav-wrapper
+//-       a.brand-logo(href="index.html") Materialize
+//-       ul#nav-mobile.right.side-nav(style="left: -250px;")
+//-         li.hide-on-small-only
+//-           a(href="parallax.html")
+//-             i.mdi-navigation-arrow-back
+//-       a.button-collapse(href="#", data-activates="nav-mobile")
+//-         i.mdi-navigation-menu

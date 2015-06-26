@@ -72,4 +72,16 @@ function saveAuthData (authData) {
 }
 
 
+function MyCtrl($scope) {
+    angular.element(document).ready(function () {
+
+$(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
+
+
+        console.log('Hello World');
+    });
+}
 
