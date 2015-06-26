@@ -69,6 +69,7 @@ function saveAuthData (authData) {
     url: `${FBURL}/users/${authData.uid}/profile.json?auth=${authData.token}`,
     data: JSON.stringify(authData)
   });
-
 }
+
+
 

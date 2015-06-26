@@ -1,20 +1,18 @@
-nav.navbar.navbar-default.navbar-static-top
+nav.blue.darken-3
   .container
-    .navbar-header
-      a.navbar-brand(ui-sref="home")
-        | What"s the Score?!
-    ul.nav.navbar-nav.pull-right
-      li
-        a(ui-sref="home")  Home
-      li(ng-show="user")
-        a(ui-sref="secure.profile")  Profile
-      li(ng-show="user")
-        a(ui-sref="gamepage")  Game Page
-      li(ng-show="user")
-        a(ui-sref="trophyroom") Trophy Room
-      li(ng-show="!user")
-        a(ui-sref="register")  Register
-      li(ng-show="!user")
-        a(ui-sref="login")  Login
-      li(ng-show="user")
-        a(ui-sref="logout")  Logout
+    .nav-wrapper
+      ul.nav.navbar-nav.pull-right
+        li
+          a(ui-sref="home") Home
+        li(ng-show="user")
+          a(ui-sref="secure.profile") Profile
+        li(ng-show="user")
+          a(ui-sref="gamepage") Game Page
+        li(ng-show="user")
+          a(ui-sref="trophyroom") Trophy Room
+        li(ng-show="!user")
+          a(ui-sref="register") Register
+        li(ng-show="!user")
+          a(ui-sref="login") Login
+        li(ng-show="user")
+          a(ui-sref="logout") Logout
