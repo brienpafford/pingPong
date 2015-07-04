@@ -5,6 +5,7 @@ html(lang="en", ng-app="pingPong")
     meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     title What's the Score?!
     link(rel="stylesheet", type="text/css", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css")
+    //link(rel="stylesheet", href="/lib/build.css")
     link(rel="stylesheet", href="/css/main.css")
   body
     div
@@ -12,10 +13,11 @@ html(lang="en", ng-app="pingPong")
       .container
         .row
           div(ui-view)
-    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js")
-    //script(src="bower_components/angular-materialize/src/angular-materialize.js")
+    script(src="lib/build.js")
+    //script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js")
+    //script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    //script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js")
+    //script(src="../bower_components/ngMaterialize/dist/ngMaterialize.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js")
     script(src="http://cdn.firebase.com/js/client/2.2.1/firebase.js")
     script(src="http://cdn.firebase.com/libs/angularfire/0.9.2/angularfire.min.js")

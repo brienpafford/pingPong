@@ -1,4 +1,4 @@
-var app = angular.module('pingPong', ['ui.router', 'firebase']);
+var app = angular.module('pingPong', ['ui.router', 'firebase', 'ngMaterialize']);
 
 app.constant('FBURL', 'https://ping-pong-score.firebaseio.com');
 
@@ -47,6 +47,12 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'GPCtrl'
     })
 
+    .state('#newGameModal', {
+      url: '/newGame',
+      templateUrl: 'scripts/secure/newGameModal.html',
+      controller: 'GPCtrl'
+    })
+
     .state('trophyroom', {
       url: '/trophyroom',
       templateUrl: 'scripts/secure/trophyroom.html',
@@ -63,25 +69,12 @@ app.config(function($stateProvider, $urlRouterProvider){
 ////////////// DATA POSTING ///////////
 
 
-function saveAuthData (authData) {
-  $.ajax({
-    method: 'POST',
-    url: `${FBURL}/users/${authData.uid}/profile.json?auth=${authData.token}`,
-    data: JSON.stringify(authData)
-  });
-}
-
-
-function MyCtrl($scope) {
-    angular.element(document).ready(function () {
-
-$(document).ready(function(){
-      $('.parallax').parallax();
-    });
 
 
 
-        console.log('Hello World');
-    });
-}
+
+
+//         console.log('Hello World');
+//     });
+// }
 

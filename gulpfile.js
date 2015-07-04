@@ -13,7 +13,7 @@ gulp.task('bower', function () {
     .pipe($.concat('build.js'))
     .pipe(gulp.dest('public/lib'));
   gulp
-    .src($.mainBowerFiles('**/*.css'))
+    .src($.mainBowerFiles('**/*.scss'))
     .pipe($.concat('build.css'))
     .pipe(gulp.dest('public/lib'));
 });
