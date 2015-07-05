@@ -1,36 +1,10 @@
-// angular
-//   .module('pingPong')
+// var app = angular.module("pingPong", ["firebase"]);
 
-//   .factory('Game', function ($http, FBURL) {
-//     return {
-//       getOne(id, cb) {
-//         $http
-//           .get(`${FBURL}/user/${id}.json`)
-//           .success(cb);
-//       },
+// app.factory("games", ["$firebaseArray",
+//   function($firebaseArray) {
+//     var ref = new Firebase("https://ping-pong-score.firebaseio.com");
 
-//       getAll(cb) {
-//         $http
-//           .get(`${FBURL}/user.json`)
-//           .success(cb);
-//       },
+//     return $firebaseArray(ref);
+//   }
+// ]);
 
-//       create(data, cb) {
-//         $http
-//           .post(`${FBURL}/user.json`, data)
-//           .success(cb);
-//       },
-
-//       update(id, data, cb) {
-//         $http
-//           .put(`${FBURL}/user/${id}.json`, data)
-//           .success(cb);
-//       },
-
-//       destroy(id, cb) {
-//         $http
-//           .delete(`${FBURL}/user/${id}.json`)
-//           .success(cb);
-//       }
-//     }
-//   });
