@@ -1,7 +1,7 @@
 nav.blue.darken-3
   .container
     .nav-wrapper
-      ul.nav.navbar-nav.pull-right
+      ul.nav.navbar-nav
         li
           a.waves-effect.waves-light(ui-sref="home") Home
         //- li(ng-show="user")
@@ -9,7 +9,7 @@ nav.blue.darken-3
         li(ng-show="user")
           a.waves-effect.waves-light(ui-sref="gamepage") Game Page
         li(ng-show="user")
-          a.waves-effect.waves-light(ui-sref="trophyroom") Trophy Room
+          a.waves-effect.waves-light(ui-sref="stats") Stats
         li(ng-show="!user")
           a.waves-effect.waves-light(ui-sref="register") Register
         li(ng-show="!user")

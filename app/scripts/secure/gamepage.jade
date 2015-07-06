@@ -1,21 +1,20 @@
-h3 GAME ON
+h3.text-center GAME ON
 
-
-.col-sm-6.col-sm-offset-3
-  form.col.s12(ng-submit="saveGame()")
-    .input-field
-      label  Player 1
-      input.form-control.validate(type="text", ng-model="p1.name")
-    .input-field
-      label  Player 2
-      input.form-control(type="text", ng-model="p2.name")
-    .input-field
-      label  Player 1 Score
-      input.form-control(type="text", ng-model="p1.score")
-    .input-field
-      label Player 2 Score
-      input.form-control(type="text", ng-model="p2.score")
-    button.btn.waves-effect.waves-light(type="submit", onclick="Materialize.toast('Game Saved', 2000, 'rounded')") Save Game!
+.container
+    form.col.s12.m12.offset(ng-submit="saveGame()")
+      .input-field
+        label  Player 1 Name
+        input.form-control.validate(type="text", ng-model="p1.name")
+      .input-field
+        label  Player 2 Name
+        input.form-control(type="text", ng-model="p2.name")
+      .input-field
+        label  Player 1 Score
+        input.form-control(type="text", ng-model="p1.score")
+      .input-field
+        label Player 2 Score
+        input.form-control(type="text", ng-model="p2.score")
+      button.btn.waves-effect.waves-light(type="submit", onclick="Materialize.toast('Game Saved', 2000, 'rounded')") Save Game!
 
 
 

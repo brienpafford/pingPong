@@ -57,10 +57,10 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'GPCtrl'
     })
 
-    .state('trophyroom', {
-      url: '/trophyroom',
-      templateUrl: 'scripts/secure/trophyroom.html',
-      controller: 'TRCtrl'
+    .state('stats', {
+      url: '/stats',
+      templateUrl: 'scripts/secure/stats.html',
+      controller: 'SCtrl'
     })
 
     .state('secure.profile', {
