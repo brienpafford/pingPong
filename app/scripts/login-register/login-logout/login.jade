@@ -1,10 +1,14 @@
-h1.text-center  Login
+h2.text-center  Login
 .col-sm-6.col-sm-offset-3
-  form(ng-submit="login()")
-    .form-group
+  form.col.s12(ng-submit="login()")
+    .input-field
+      label Username
+      input.form-control(type="text", ng-model="user.name")
+    .input-field
       label  Email
-      input.form-control(type="text", ng-model="user.email", placeholder="john@gmail.com")
-    .form-group
+      input.form-control(type="text", ng-model="user.email")
+    .input-field
       label Password
-      input.form-control(type="password", ng-model="user.pw", placeholder="*********")
-    button.btn.btn-primary.waves-effect.waves-light(type="submit") Submit
+      input.form-control(type="password", ng-model="user.pw")
+    button.btn.btn-primary.waves-effect.waves-light(type="submit", onclick="Materialize.toast('Login Successful!', 2700, 'rounded')") Submit
+

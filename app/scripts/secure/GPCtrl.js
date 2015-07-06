@@ -1,72 +1,78 @@
 var app = angular.module('pingPong');
 
-app.controller('GPCtrl', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $firebase, authService){
+app.controller('GPCtrl', function($scope, $rootScope, $firebase, authService, $state){
   console.log("Game Page");
 
 //SAVE GAME SCORES TO FIREBASE
 
-      $scope.saveGame = function () {
-        //console.log('submitted!')
+  var ref = new Firebase("https://ping-pong-score.firebaseio.com/")
+  var authData = ref.getAuth();
 
+// SET SCOPE TO USER INPUT
 
-      var ref = new Firebase("https://ping-pong-score.firebaseio.com/")
-      var authData = ref.getAuth();
-      var usersRef = ref.child("games");
+    $scope.p1 = {};
+    $scope.p2 = {};
+    $scope.saveGame = function () {
 
-      //console.log(authData.uid)
+// CREATE PLAYERS/SCORES OBJECT
 
+    var playerObj = {
+    p1name: $scope.p1.name,
+    p2name: $scope.p2.name,
+    p1score: $scope.p1.score,
+    p2score: $scope.p2.score
+ }
 
-      //console.log(authData.uid)
+//
+    var usersRef = ref.child("games");
+    var randomGameId = Math.round(Math.random() * 10000);
 
-      var p1name = authData.uid;
-      var p2name = "simplelogin:89";
-      var randomGameId = Math.round(Math.random() * 10000);
-      //console.log(p2name);
+// SAVE DATA TO FIREBASE
 
-      usersRef.push({
+    usersRef.push({
 
-          gameId: randomGameId,
-          player1: p1name,
-          player2: p2name,
-          p1score: "10",
-          p2score: "21",
-      });
+        gameId: randomGameId,
+        player1: $scope.p1.name,
+        player2: $scope.p2.name,
+        p1score: $scope.p1.score,
+        p2score: $scope.p2.score,
+    });
 
+// REFRESH PAGE
+
+      $state.reload()
 }
 
-//GET DATA FROM FIREBASE TO BROWSER
+// //GET DATA FROM FIREBASE TO BROWSER
 
-  var ref = new Firebase("https://ping-pong-score.firebaseio.com/games");
+//   var ref = new Firebase("https://ping-pong-score.firebaseio.com/games");
 
-    ref.on('value', function(dataSnapshot) {
+//     ref.on('value', function(dataSnapshot) {
 
-      $rootScope.dataObj = dataSnapshot.val()
+//       $rootScope.dataObj = dataSnapshot.val()
 
-      var gScoreTotal = $rootScope.dataObj
-
-      // console.log(gScoreTotal)
-      // $.each(
-        //console.log(gScoreTotal)
+//       var gScoreTotal = $rootScope.dataObj
 
 
-      });
 
-    console.log($rootScope.dataObj)
+//       });
 
-//CALCULATE WINS FOR USER
+//     console.log($rootScope.dataObj)
 
-  var wins = new Firebase('https://ping-pong-score.firebaseio.com/games');
+// //CALCULATE WINS FOR USER
 
-  var winCount = 0;
+//   var wins = new Firebase('https://ping-pong-score.firebaseio.com/games');
 
-  $scope.winCount = winCount;
-  wins.on('child_added', function (snapshot) {
-    var win = snapshot.val();
-    winCount++;
-    console.log($scope.winCount)
+//   var winCount = 0;
 
-  })
-      console.log($scope.winCount)
+//   $scope.winCount = winCount;
+//   wins.on('child_added', function (snapshot) {
+//     var win = snapshot.val();
+//     winCount++;
+//     console.log($scope.winCount)
+
+//   })
+//       console.log($scope.winCount)
 
 
 
@@ -96,7 +102,7 @@ app.controller('GPCtrl', ['$scope', '$rootScope', '$http', function($scope, $roo
 
 //   console.log(myScore);
 //   });
-}])
+})
 
 
 

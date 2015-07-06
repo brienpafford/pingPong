@@ -4,8 +4,8 @@ nav.blue.darken-3
       ul.nav.navbar-nav.pull-right
         li
           a.waves-effect.waves-light(ui-sref="home") Home
-        li(ng-show="user")
-          a.waves-effect.waves-light(ui-sref="secure.profile") Profile
+        //- li(ng-show="user")
+        //-   a.waves-effect.waves-light(ui-sref="secure.profile") Profile
         li(ng-show="user")
           a.waves-effect.waves-light(ui-sref="gamepage") Game Page
         li(ng-show="user")
@@ -15,7 +15,7 @@ nav.blue.darken-3
         li(ng-show="!user")
           a.waves-effect.waves-light(ui-sref="login") Login
         li(ng-show="user")
-          a(ui-sref="logout") Logout
+          a(ui-sref="logout", onclick="Materialize.toast('You have Logged Out', 2700, 'rounded')") Logout
 
 
 //- nav

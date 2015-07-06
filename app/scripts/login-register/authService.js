@@ -27,7 +27,7 @@ app.service('authService', function($firebase, FBURL){
 
   this.createUser = function(user, cb) {
     ref.createUser(user, function(err, authData) {
-      console.log(authData)
+      //console.log(authData)
       if (err) {
         switch (err.code) {
           case "EMAIL_TAKEN":
@@ -42,6 +42,7 @@ app.service('authService', function($firebase, FBURL){
       } else {
           this.loginWithPW(user, function(authData){
             addNewUserToFB({
+              name: user.name,
               email: user.email,
               uid: authData.uid,
               token: authData.token

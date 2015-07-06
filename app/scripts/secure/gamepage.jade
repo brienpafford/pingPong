@@ -1,26 +1,21 @@
 h3 GAME ON
 
-//button.btn.modal-trigger(data-target="modal1") Modal
 
-div.row(ng-controller = "GPCtrl")
-  form
-      .form-group
-        label  Player 1
-        input.form-control(type="text", ng-model="user.score")
-      .form-group
-        label  Player 2
-        input.form-control(type="text", ng-model="user.score")
-      .form-group
-        label  Player 1 Score
-        input.form-control(type="text", ng-model="user.score", placeholder="21")
-      .form-group
-        label Player 2 Score
-        input.form-control(type="password", ng-model="user.pw", placeholder="18")
-
-
-a.button.btn.waves-effect.waves-light(ng-click="saveGame()", onclick="Materialize.toast('Game Saved', 3200)") Save Game!
-
-
+.col-sm-6.col-sm-offset-3
+  form.col.s12(ng-submit="saveGame()")
+    .input-field
+      label  Player 1
+      input.form-control.validate(type="text", ng-model="p1.name")
+    .input-field
+      label  Player 2
+      input.form-control(type="text", ng-model="p2.name")
+    .input-field
+      label  Player 1 Score
+      input.form-control(type="text", ng-model="p1.score")
+    .input-field
+      label Player 2 Score
+      input.form-control(type="text", ng-model="p2.score")
+    button.btn.waves-effect.waves-light(type="submit", onclick="Materialize.toast('Game Saved', 2000, 'rounded')") Save Game!
 
 
 

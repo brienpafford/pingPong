@@ -4,10 +4,12 @@ app.controller('RegisterCtrl', function($scope, $state, authService){
   $scope.user = {};
   $scope.register = function(){
     var userObj = {
+      name: $scope.user.name,
       email: $scope.user.email,
       password: $scope.user.pw
     };
 
+    $scope.user.name= '';
     $scope.user.email = '';
     $scope.user.pw = '';
 

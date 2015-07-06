@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $('select').material_select();
+});
+
 var app = angular.module('pingPong', ['ui.router', 'firebase', 'ngMaterialize']);
 
 app.constant('FBURL', 'https://ping-pong-score.firebaseio.com');
@@ -17,8 +21,8 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'LoginCtrl'
     })
     .state('logout', {
-      url: '/logout',
-      templateUrl: 'scripts/login-register/login-logout/logout.html',
+      url: '/',
+      templateUrl: 'scripts/home/home.html',
       controller: 'LoginCtrl',
       resolve: {
         logout: function(authService){
@@ -66,7 +70,8 @@ app.config(function($stateProvider, $urlRouterProvider){
     });
 });
 
-////////////// DATA POSTING ///////////
+////////////// Document Ready JS ///////////
+
 
 
 

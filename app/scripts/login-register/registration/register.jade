@@ -2,6 +2,9 @@ h1.text-center  Register
 .col-sm-6.col-sm-offset-3
   form(ng-submit="register()")
     .form-group
+      label Username
+      input.form-control(type="text", ng-model="user.name", placeholder="John Smith")
+    .form-group
       label  Email
       input.form-control(type="text", ng-model="user.email", placeholder="john@gmail.com")
     .form-group
