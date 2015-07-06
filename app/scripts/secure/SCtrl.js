@@ -3,11 +3,7 @@ var app = angular.module('pingPong');
 app.controller('SCtrl', function($scope, $rootScope, $firebase, authService, $state){
   console.log("Stats")
 
-
-
-
-
-//CALCULATE WINS FOR USER
+//CALCULATE WINS FOR PLAYER 1
 
   var wins = new Firebase('https://ping-pong-score.firebaseio.com/games');
 
@@ -15,11 +11,62 @@ app.controller('SCtrl', function($scope, $rootScope, $firebase, authService, $st
 
   $scope.winCount = winCount;
   wins.on('child_added', function (snapshot) {
-    var win = snapshot.val();
+    var win = snapshot.val().player1;
     winCount++;
     console.log($scope.winCount)
 
   })
+
+// CALCULATE LOSSES FOR PLAYER 1
+
+
+
+// ELO STATS CALC
+  function CalculateElo()
+
+{
+
+var wins = document.score.wins.value * 1;
+
+var draws = document.score.draws.value * 1;
+
+var losses = document.score.losses.value * 1;
+
+var score = wins + draws/2;
+
+var total = wins + draws + losses;
+
+var percentage = (score /  total);
+
+var EloDifference = -400 * Math.log(1 / percentage - 1) / Math.LN10;
+
+var Sign = "";
+
+if (EloDifference > 0) { Sign="+"; }
+
+
+
+document.points.points.value = score;
+
+document.points.totalgames.value = total;
+
+document.percent.winning.value = Math.round(percentage*10000)/100;
+
+document.Elo.difference.value = Sign+Math.round(EloDifference);
+
+}
+
+// APPEND DATA TO TABLES
+
+
+
+
+
+
+
+
+//////////////////////
+
       //console.log($scope.winCount)
 
 

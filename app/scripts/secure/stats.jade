@@ -1,4 +1,54 @@
 h3.text-center Stats!!
 
 .container
-  col.s12.m12.offset
+  .row
+    .col.s12.m5
+      .card-panel.blue.darken-3
+        span.white-text
+          | Stats are calculated by four paramaters (Two players, and their scores)
+    .col.s12.m7
+      .card-panel.blue.darken-3
+        span.white-text
+          | The ELO Ranking system accounts for Wins and Losses. This simple app currently assigns a score of 5 points per win, -2 points per loss
+
+
+  .row
+    table.hoverable
+      thead
+        tr
+          th#data-field Rank
+          th#data-field Name
+          th#data-field Wins
+          th#data-field Losses
+          th#data-field ELO
+        tbody
+          tr
+            td 1
+            td Brien
+            td 24
+            td 7
+            td 2430
+          tr
+            td 2
+            td Noah
+            td 22
+            td 8
+            td 2200
+          tr
+            td 3
+            td Caleb
+            td 14
+            td 10
+            td 1875
+          tr
+            td 4
+            td Greg
+            td 13
+            td 12
+            td 1650
+          tr
+            td 5
+            td Kyle
+            td 12
+            td 11
+            td 890
