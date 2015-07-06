@@ -34,11 +34,11 @@ app.controller('GPCtrl', ['$scope', '$rootScope', '$http', function($scope, $roo
 
 }
 
-// GET DATA FROM FIREBASE TO BROWSER
+//GET DATA FROM FIREBASE TO BROWSER
 
   var ref = new Firebase("https://ping-pong-score.firebaseio.com/games");
 
-    ref.once('value', function(dataSnapshot) {
+    ref.on('value', function(dataSnapshot) {
 
       $rootScope.dataObj = dataSnapshot.val()
 
@@ -46,33 +46,56 @@ app.controller('GPCtrl', ['$scope', '$rootScope', '$http', function($scope, $roo
 
       // console.log(gScoreTotal)
       // $.each(
+        //console.log(gScoreTotal)
+
 
       });
 
-//FIREBASE DATA TO ARRAY FOR DATA SORTING
-
-
-    //PLAYER NAME, SCORE OBJECTS
-    var ref = new Firebase("https://ping-pong-score.firebaseio.com/games");
-    ref.on('child_added', function(snapshot) {
-      var player1RName = (snapshot.val().player1);
-      var player2RName = (snapshot.val().player2);
-      var player1RScore = (snapshot.val().p1score);
-      var player2RScore = (snapshot.val().p2score);
-      //console.log(player2RScore)
+    console.log($rootScope.dataObj)
 
 //CALCULATE WINS FOR USER
 
-    var userScore = 0;
+  var wins = new Firebase('https://ping-pong-score.firebaseio.com/games');
 
-    if (player1RScore > player2RScore) {
-      console.log('player 1 wins!')
-    } else if (player1RScore < player2RScore) {
-        console.log('player 2 wins!')
-      }
+  var winCount = 0;
 
-  console.log(userScore);
-  });
+  $scope.winCount = winCount;
+  wins.on('child_added', function (snapshot) {
+    var win = snapshot.val();
+    winCount++;
+    console.log($scope.winCount)
+
+  })
+      console.log($scope.winCount)
+
+
+
+
+// //FIREBASE DATA TO ARRAY FOR DATA SORTING
+
+
+//     //PLAYER NAME, SCORE OBJECTS
+//     var ref = new Firebase("https://ping-pong-score.firebaseio.com/games");
+//     ref.on('child_added', function(snapshot) {
+//       var player1RName = (snapshot.val().player1);
+//       var player2RName = (snapshot.val().player2);
+//       var player1RScore = (snapshot.val().p1score);
+//       var player2RScore = (snapshot.val().p2score);
+//       //console.log(player2RScore)
+
+//
+
+//     var myScore = 0;
+
+//     if (player1RScore > player2RScore) {
+//       console.log('player 1 wins!')
+//       return myScore + 1;
+//     } else if (player1RScore < player2RScore) {
+//         console.log('player 2 wins!')
+//       }
+
+//   console.log(myScore);
+//   });
 }])
 
 

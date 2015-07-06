@@ -2,22 +2,25 @@ h3 GAME ON
 
 //button.btn.modal-trigger(data-target="modal1") Modal
 
-//- form(ng-submit="login()")
-//-     .form-group
-//-       label  Email
-//-       input.form-control(type="text", ng-model="user.score", placeholder="john@gmail.com")
-//-     .form-group
-//-       label Password
-//-       input.form-control(type="password", ng-model="user.pw", placeholder="*********")
-//-     button.btn.btn-primary.waves-effect.waves-light(type="submit") Submit
+div.row(ng-controller = "GPCtrl")
+  form
+      .form-group
+        label  Player 1
+        input.form-control(type="text", ng-model="user.score")
+      .form-group
+        label  Player 2
+        input.form-control(type="text", ng-model="user.score")
+      .form-group
+        label  Player 1 Score
+        input.form-control(type="text", ng-model="user.score", placeholder="21")
+      .form-group
+        label Player 2 Score
+        input.form-control(type="password", ng-model="user.pw", placeholder="18")
 
-//- input(type="button", value="Save Game", ng-click="saveGame()")
 
-div(ng-controller = "GPCtrl")
-  form(ng-submit="saveGame()")
-    .form-group
-      label Player
+a.button.btn.waves-effect.waves-light(ng-click="saveGame()", onclick="Materialize.toast('Game Saved', 3200)") Save Game!
 
 
-  button.btn.waves-effect.waves-light(ng-click="saveGame()") Save Game
+
+
 
