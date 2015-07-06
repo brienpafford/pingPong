@@ -24,12 +24,12 @@ app.controller('GPCtrl', function($scope, $rootScope, $firebase, authService, $s
  }
 
 //
-    var usersRef = ref.child("games");
+    var gamesRef = ref.child("games");
     var randomGameId = Math.round(Math.random() * 10000);
 
 // SAVE DATA TO FIREBASE
 
-    usersRef.push({
+    gamesRef.push({
 
         gameId: randomGameId,
         player1: $scope.p1.name,
