@@ -1,15 +1,43 @@
-h1 {
-  color: red;
-}
-
 h2 {
   color: red;
+  font-family: 'Dosis', serif;
+  font-weight: 600;
+  line-height: 50px;
+  font-size: 55px;
+  margin: 0 0 43px 0;
 }
+
 
 h3 {
   color: red;
 }
 
+h5 {
+  font-size: 20px;
+}
+
+// h1 {
+//     font-family: 'Dosis', sans-serif;
+//     font-weight: 400;
+//     line-height: 46px;
+//     font-size: 40px;
+//     }
+// h2 {
+//     font-family: 'Dosis', sans-serif;
+//     font-weight: 400;
+//     font-size: 46px;
+//     line-height: 23px;
+//     }
+// p {
+//     font-family: 'Open Sans', sans-serif;
+//     font-size: 14px;
+//     line-height: 23px;
+//     }
+// a {
+//   font-family: 'Open Sans', sans-serif;
+//     font-size: 14px;
+//     line-height: 23px;
+// }
 
 .parallax-container {
       height: 800px;
@@ -21,3 +49,7 @@ body {
 }
 
 
+.container-main {
+  margin-top: 60px;
+  margin-bottom: 100px;
+}

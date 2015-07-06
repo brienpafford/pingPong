@@ -1,6 +1,7 @@
-$(document).ready(function() {
-    $('select').material_select();
-});
+ $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
 
 var app = angular.module('pingPong', ['ui.router', 'firebase', 'ngMaterialize']);
 

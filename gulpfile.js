@@ -89,6 +89,8 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('public'));
 });
 
+
+
 //gulp.task('build:prod', ['jade:prod', 'sass:prod', 'js:prod', 'bower', 'copy']);
 gulp.task('build:dev', ['jade:dev', 'sass:dev', 'js:dev', 'bower']);
 
