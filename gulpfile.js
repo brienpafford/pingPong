@@ -67,6 +67,11 @@ gulp.task('js:dev', function () {
     .pipe(gulp.dest('public'));
 });
 
+gulp.task('img', function () {
+  gulp.src('app/*.png')
+    .pipe(gulp.dest('public/'));
+});
+
 // gulp.task('js:prod', function () {
 //   gulp.src('src/**/*.js')
 //     .pipe($.sourcemaps.init())
@@ -102,6 +107,6 @@ gulp.task('serve', ['build:dev'], function () {
  // gulp.watch(['src/**/*', '!src/**/*.jade', '!src/**/*.scss', '!src/**/*.js'], ['build:dev']).on('change', $.browserSync.reload);
 });
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', ['clean', 'img'], function () {
   gulp.start('serve');
 });

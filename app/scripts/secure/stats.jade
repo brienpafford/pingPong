@@ -5,11 +5,13 @@ h3.text-center Leaderboard
     .col.s12.m5
       .card-panel.blue.darken-3
         span.white-text
-          | Stats are calculated by four paramaters (Two players, and their scores)
+          | Stats are calculated by the number of Games played
+          | and the two scores from each player.
     .col.s12.m7
       .card-panel.blue.darken-3
         span.white-text
-          | The ELO Ranking system accounts for Wins and Losses. This simple app currently assigns a score of 5 points per win, -2 points per loss
+          | The ELO Ranking system accounts for Wins and Losses. ELO starts at 1400,
+          | and the ranking is self-corrected by data over time.
 
 
   .row
@@ -21,15 +23,15 @@ h3.text-center Leaderboard
           th Wins
           th Losses
         footer
-          .input-field
-            input#nameInput.example-leaderboard-name(type="text", placeholder="Enter Player 1 Name")
-            input#winsInput.example-leaderboard-wins(type="number", placeholder= "Enter Player 1 Wins")
-            input#lossInput.example-leaderboard-loss(type="number", placeholder="Enter Player 1 Losses")
-            input#scoreInput.example-leaderboard-score(type="number", placeholder="Enter Player 1 ELO")
-            input#name2Input.example-leaderboard-name(type="text", placeholder="Enter Player 2 Name")
-            input#wins2Input.example-leaderboard-wins(type="number", placeholder= "Enter Player 2 Wins")
-            input#loss2Input.example-leaderboard-loss(type="number", placeholder="Enter Player 2 Losses")
-            input#score2Input.example-leaderboard-score(type="number", placeholder="Enter Player 2 ELO")
+          //- .input-field
+          //-   input#nameInput.example-leaderboard-name(type="text", placeholder="Enter Player 1 Name")
+          //-   input#winsInput.example-leaderboard-wins(type="number", placeholder= "Enter Player 1 Wins")
+          //-   input#lossInput.example-leaderboard-loss(type="number", placeholder="Enter Player 1 Losses")
+          //-   input#scoreInput.example-leaderboard-score(type="number", placeholder="Enter Player 1 ELO")
+            //- input#name2Input.example-leaderboard-name(type="text", placeholder="Enter Player 2 Name")
+            //- input#wins2Input.example-leaderboard-wins(type="number", placeholder= "Enter Player 2 Wins")
+            //- input#loss2Input.example-leaderboard-loss(type="number", placeholder="Enter Player 2 Losses")
+            //- input#score2Input.example-leaderboard-score(type="number", placeholder="Enter Player 2 ELO")
 
 
 

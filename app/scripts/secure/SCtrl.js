@@ -14,6 +14,8 @@ app.controller('SCtrl', function($scope, $rootScope, $firebase, authService, $st
 
       var gScoreTotal = $rootScope.dataObj
 
+      var dataLength = Object.keys(gScoreTotal).length
+           console.log(dataLength)
 
 
 
@@ -36,13 +38,27 @@ app.controller('SCtrl', function($scope, $rootScope, $firebase, authService, $st
     //PLayer
       $.each(gScoreTotal, function(key, value) {
           scoreObj = value;
-          //console.log(scoreObj)
+                //console.log(scoreObj)
+
+
+          });
+
 
           var scoreArr = _.values(scoreObj)
           // console.log(scoreArr[0])
           // console.log(scoreArr[1])
           // console.log(scoreArr[2])
           // console.log(scoreArr[3])
+
+
+          // var counts = {};
+          // for(var i = 0; i<scoreArr.length; i++) {
+          //   var num = scoreArr[i];
+          //   counts[num] = counts[num] ? counts[num]+1 : 1;
+          //   console.log(counts[0])
+          // }
+          // console.log(counts)
+          // console.log(scoreArr[0]))
 
           p1name = scoreArr[0];
           p1score = scoreArr[1];
@@ -59,10 +75,14 @@ app.controller('SCtrl', function($scope, $rootScope, $firebase, authService, $st
   var p1name = p1name;
   var p2name = p2name;
 
+for (var i=0; i<dataLength; i++) {
   if (p1score > p2score) {
+
       p1wins++
+
       p2loss++
-  } else if (p2score > p1score) {
+      console.log(p1wins)
+  } else if (p1score < p2score) {
     p2wins++
     p1loss++
 
@@ -70,131 +90,140 @@ app.controller('SCtrl', function($scope, $rootScope, $firebase, authService, $st
     console.log('no Win or Loss')
   };
 
-  // console.log(p1wins)
+}
+   //console.log(p1wins)
   // console.log(p2loss)
   // console.log(p2wins)
   // console.log(p1loss)
 
 
 
+  var p1ELO = '';
+  var p2ELO = '';
+
+
 
 
 /////Algorithim for Elo///////
 
-// (function() {
-//   var EloRating, elo, girlA, girlB, ratingA, ratingB, results;
 
 
 
-//   EloRating = (function() {
+(function() {
+  var EloRating, elo, girlA, girlB, ratingA, ratingB, results;
 
-//     function EloRating(ratingA, ratingB, scoreA, scoreB) {
-//       var expectedScores, newRatings;
-//       this.KFACTOR = 16;
-//       this._ratingA = ratingA;
-//       this._ratingB = ratingB;
-//       this._scoreA = scoreA;
-//       this._scoreB = scoreB;
-//       expectedScores = this._getExpectedScores(this._ratingA, this._ratingB);
-//       this._expectedA = expectedScores.a;
-//       this._expectedB = expectedScores.b;
-//       newRatings = this._getNewRatings(this._ratingA, this._ratingB, this._expectedA, this._expectedB, this._scoreA, this._scoreB);
-//       this._newRatingA = newRatings.a;
-//       this._newRatingB = newRatings.b;
-//     }
 
-//     EloRating.prototype.setNewSetings = function(ratingA, ratingB, scoreA, scoreB) {
-//       var expectedScores, newRatings;
-//       this._ratingA = ratingA;
-//       this._ratingB = ratingB;
-//       this._scoreA = scoreA;
-//       this._scoreB = scoreB;
-//       expectedScores = this._getExpectedScores(this._ratingA, this._ratingB);
-//       this._expectedA = expectedScores.a;
-//       this._expectedB = expectedScores.b;
-//       newRatings = this._getNewRatings(this._ratingA, this._ratingB, this._expectedA, this._expectedB, this._scoreA, this._scoreB);
-//       this._newRatingA = newRatings.a;
-//       return this._newRatingB = newRatings.b;
-//     };
 
-//     EloRating.prototype.getNewRatings = function() {
-//       var ratings;
-//       return ratings = {
-//         a: Math.round(this._newRatingA),
-//         b: Math.round(this._newRatingB)
-//       };
-//     };
+  EloRating = (function() {
 
-//     EloRating.prototype._getExpectedScores = function(ratingA, ratingB) {
-//       var expected, expectedScoreA, expectedScoreB;
-//       expectedScoreA = 1 / (1 + Math.pow(10, (ratingB - ratingA) / 400));
-//       expectedScoreB = 1 / (1 + Math.pow(10, (ratingA - ratingB) / 400));
-//       return expected = {
-//         a: expectedScoreA,
-//         b: expectedScoreB
-//       };
-//     };
+    function EloRating(ratingA, ratingB, scoreA, scoreB) {
+      var expectedScores, newRatings;
+      this.KFACTOR = 16;
+      this._ratingA = ratingA;
+      this._ratingB = ratingB;
+      this._scoreA = scoreA;
+      this._scoreB = scoreB;
+      expectedScores = this._getExpectedScores(this._ratingA, this._ratingB);
+      this._expectedA = expectedScores.a;
+      this._expectedB = expectedScores.b;
+      newRatings = this._getNewRatings(this._ratingA, this._ratingB, this._expectedA, this._expectedB, this._scoreA, this._scoreB);
+      this._newRatingA = newRatings.a;
+      this._newRatingB = newRatings.b;
+    }
 
-//     EloRating.prototype._getNewRatings = function(ratingA, ratingB, expectedA, expectedB, scoreA, scoreB) {
-//       var newRatingA, newRatingB, ratings;
-//       newRatingA = ratingA + (this.KFACTOR * (scoreA - expectedA));
-//       newRatingB = ratingB + (this.KFACTOR * (scoreB - expectedB));
-//       return ratings = {
-//         a: newRatingA,
-//         b: newRatingB
-//       };
-//     };
+    EloRating.prototype.setNewSetings = function(ratingA, ratingB, scoreA, scoreB) {
+      var expectedScores, newRatings;
+      this._ratingA = ratingA;
+      this._ratingB = ratingB;
+      this._scoreA = scoreA;
+      this._scoreB = scoreB;
+      expectedScores = this._getExpectedScores(this._ratingA, this._ratingB);
+      this._expectedA = expectedScores.a;
+      this._expectedB = expectedScores.b;
+      newRatings = this._getNewRatings(this._ratingA, this._ratingB, this._expectedA, this._expectedB, this._scoreA, this._scoreB);
+      this._newRatingA = newRatings.a;
+      return this._newRatingB = newRatings.b;
+    };
 
-//     return EloRating;
+    EloRating.prototype.getNewRatings = function() {
+      var ratings;
+      return ratings = {
+        a: Math.round(this._newRatingA),
+        b: Math.round(this._newRatingB)
+      };
+    };
 
-//   })();
+    EloRating.prototype._getExpectedScores = function(ratingA, ratingB) {
+      var expected, expectedScoreA, expectedScoreB;
+      expectedScoreA = 1 / (1 + Math.pow(10, (ratingB - ratingA) / 400));
+      expectedScoreB = 1 / (1 + Math.pow(10, (ratingA - ratingB) / 400));
+      return expected = {
+        a: expectedScoreA,
+        b: expectedScoreB
+      };
+    };
 
-//   elo = new EloRating();
+    EloRating.prototype._getNewRatings = function(ratingA, ratingB, expectedA, expectedB, scoreA, scoreB) {
+      var newRatingA, newRatingB, ratings;
+      newRatingA = ratingA + (this.KFACTOR * (scoreA - expectedA));
+      newRatingB = ratingB + (this.KFACTOR * (scoreB - expectedB));
+      return ratings = {
+        a: newRatingA,
+        b: newRatingB
+      };
+    };
 
-//   console.log('Start');
+    return EloRating;
 
-//   console.log('---');
+  })();
 
-//   ratingA = 1400;
+  elo = new EloRating();
 
-//   ratingB = 1400;
+  console.log('Start');
 
-//   console.log('Everybody starts with 1400 rating');
+  console.log('---');
 
-//   console.log('A: ' + ratingA + ' - ' + 'B: ' + ratingB);
+  ratingA = 1400;
 
-//   console.log('---');
+  ratingB = 1400;
 
-//   girlA = p1wins;
+  console.log('Everybody starts with 1400 rating');
 
-//   girlB = p2wins;
+  console.log('A: ' + ratingA + ' - ' + 'B: ' + ratingB);
 
-//   console.log('Data inputed: A: ' + girlA + ' - B: ' + girlB);
+  console.log('---');
 
-//   console.log('---');
+  girlA = 0;
 
-//   console.log('New Ratings:');
+  girlB = 10;
 
-//   console.log('---');
+  console.log('Data inputed: A: ' + girlA + ' - B: ' + girlB);
 
-//   elo.setNewSetings(ratingA, ratingB, girlA, girlB);
+  console.log('---');
 
-//   results = elo.getNewRatings();
+  console.log('New Ratings:');
 
-//   console.log('A: ' + results.a + ' - ' + 'B: ' + results.b);
+  console.log('---');
 
-//   console.log('---');
+  elo.setNewSetings(ratingA, ratingB, girlA, girlB);
 
-//   console.log('Now keep changing :)');
+  results = elo.getNewRatings();
 
-// }).call(this);
+  console.log('A: ' + results.a + ' - ' + 'B: ' + results.b);
+
+  console.log('---');
+
+  console.log('Now keep changing :)');
+
+
+
+  results.a = p1ELO
+  results.b = p2ELO
+}).call(this);
 
 //////////////////////////////
 
-console.log(p1wins)
-
-});
-
+console.log(p1ELO, p2ELO)
 
 
 
@@ -259,77 +288,6 @@ var LEADERBOARD_SIZE = 12;
   scoreListView.on('child_changed', changedCallback);
 
 
-  /// Win snapshot////////////////////////
-
-//   // Helper function that takes a new win snapshot and adds an appropriate row to our leaderboard table.
-//   function handleWinAdded(winSnapshot, prevWinName) {
-//     var newWinRow = $("<tr/>");
-//     newWinRow.append($("<td/>").append($("<em/>").text(winSnapshot.val().name)));
-//     newWinRow.append($("<td/>").append($("<em/>").text(winSnapshot.val().name)));
-//     newWinRow.append($("<td/>").text(winSnapshot.val().win));
-
-//     // Store a reference to the table row so we can get it again later.
-//     htmlForPath[winSnapshot.key()] = newWinRow;
-
-//     // Insert the new win in the appropriate place in the table.
-//     if (prevWinName === null) {
-//       $("#leaderboardTable").append(newWinRow);
-//     }
-//     else {
-//       var lowerWinRow = htmlForPath[prevWinName];
-//       lowerWinRow.before(newWinRow);
-//     }
-//   }
-
-//   // Helper function to handle a score object being removed; just removes the corresponding table row.
-//   function handleWinRemoved(winSnapshot) {
-//     var removedWinRow = htmlForPath[winSnapshot.key()];
-//     removedWinRow.remove();
-//     delete htmlForPath[winSnapshot.key()];
-//   }
-
-//   // Create a view to only receive callbacks for the last LEADERBOARD_SIZE scores
-//   var winListView = scoreListRef.limitToLast(LEADERBOARD_SIZE);
-
-//   // Add a callback to handle when a new score is added.
-//   winListView.on('child_added', function (newWinSnapshot, prevWinName) {
-//     handlewinAdded(newwinSnapshot, prevWinName);
-//   });
-
-//   // Add a callback to handle when a score is removed
-//   winListView.on('child_removed', function (oldWinSnapshot) {
-//     handleWinRemoved(oldWinSnapshot);
-//   });
-
-//   // Add a callback to handle when a score changes or moves positions.
-//   var changedCallback = function (winSnapshot, prevWinName) {
-//     handleWinRemoved(winSnapshot);
-//     handleScoreAdded(scoreSnapshot, prevScoreName);
-//   };
-//   winListView.on('child_moved', changedCallback);
-//   winListView.on('child_changed', changedCallback);
-
-// // Add a callback to handle when a new score is added.
-//   winListView.on('child_added', function (newWinSnapshot, prevWinName) {
-//     handleWinAdded(newWinSnapshot, prevScoreName);
-//   });
-
-//   // Add a callback to handle when a score is removed
-//   winListView.on('child_removed', function (oldWinSnapshot) {
-//     handleWinRemoved(oldWinSnapshot);
-//   });
-
-//   // Add a callback to handle when a score changes or moves positions.
-//   var changedCallback = function (winSnapshot, prevWinName) {
-//     handleWinRemoved(winSnapshot);
-//     handleWinAdded(winSnapshot, prevWinName);
-//   };
-//   winListView.on('child_moved', changedCallback);
-//   winListView.on('child_changed', changedCallback)
-
-
-  ///////////////////////////////////////
-
   // When the user presses enter on scoreInput, add the score, and update the highest score.
   $("#scoreInput").keypress(function (e) {
     if (e.keyCode == 13) {
@@ -378,6 +336,8 @@ var LEADERBOARD_SIZE = 12;
 
     });
 })
+
+
 
 
 ////////////ELO ON///////////////
