@@ -1,29 +1,29 @@
 h3.text-center GAME ON
 
 .container
-    form.col.s12.m12.offset(ng-submit="saveGame()")
-      .input-field
-        label  Player 1 Name
-        input.form-control.validate(type="text", ng-model="p1.name")
-      .input-field
-        label  Player 2 Name
-        input.form-control(type="text", ng-model="p2.name")
-      .input-field
-        label  Player 1 Score
-        input.form-control(type="text", ng-model="p1.score")
-      .input-field
-        label Player 2 Score
-        input.form-control(type="text", ng-model="p2.score")
-      button.red.btn.waves-effect.waves-light(type="submit", onclick="Materialize.toast('Game Saved', 2000)") Save Game!
+  form.col.s12.m12.offset(ng-submit="saveGame()")
+    .input-field
+      label  Player 1 Name
+      input.form-control.validate(type="text", ng-model="p1.name")
+    .input-field
+      label  Player 2 Name
+      input.form-control.validate(type="text", ng-model="p2.name")
+    .input-field
+      label  Player 1 Score
+      input.form-control.validate(type="number", ng-model="p1.score")
+    .input-field
+      label Player 2 Score
+      input.form-control.validate(type="number", ng-model="p2.score")
+    button.red.btn.waves-effect.waves-light(type="submit", onclick="Materialize.toast('Game Saved', 2000)") Save Game!
 
 
 .container
   .row
-      .col.s12.m5
-        .card-panel.blue.darken-3
-          span.white-text
-            | Stats are calculated by four paramaters (Two players, and their scores)
-      .col.s12.m7
-        .card-panel.blue.darken-3
-          span.white-text
-            | The ELO Ranking system accounts for Wins and Losses. This simple app currently assigns a score of 5 points per win, -2 points per loss
+    .col.s12.m5
+      .card-panel.blue.darken-3
+        span.white-text
+          | Stats are calculated by four paramaters (Two players, and their scores)
+    .col.s12.m7
+      .card-panel.blue.darken-3
+        span.white-text
+          | The ELO Ranking system accounts for Wins and Losses. This simple app currently assigns a score of 5 points per win, -2 points per loss

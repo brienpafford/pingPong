@@ -3,12 +3,12 @@ h3.text-center  Login
   form.col.s12(ng-submit="login()")
     .input-field
       label Username
-      input.form-control(type="text", ng-model="user.name")
+      input.form-control.validate(type="text", ng-model="user.name")
     .input-field
       label  Email
-      input.form-control(type="text", ng-model="user.email")
+      input.form-control.validate(type="email", ng-model="user.email")
     .input-field
       label Password
-      input.form-control(type="password", ng-model="user.pw")
+      input.form-control.validate(type="password", ng-model="user.pw")
     button.red.btn.btn-primary.waves-effect.waves-light(type="submit", onclick="Materialize.toast('Login Successful!', 2700)") Submit
 

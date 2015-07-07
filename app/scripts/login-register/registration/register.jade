@@ -1,13 +1,13 @@
 h3.text-center  Register
 .col-sm-6.col-sm-offset-3
-  form(ng-submit="register()")
-    .form-group
+  form.col.s12(ng-submit="register()")
+    .input-field
       label Username
-      input.form-control(type="text", ng-model="user.name", placeholder="John Smith")
-    .form-group
+      input.form-control.validate(type="text", ng-model="user.name", class="validate")
+    .input-field
       label  Email
-      input.form-control(type="text", ng-model="user.email", placeholder="john@gmail.com")
-    .form-group
+      input.form-control.validate(type="email", ng-model="user.email")
+    .input-field
       label Password
-      input.form-control(type="password", ng-model="user.pw", placeholder="*********")
-    button.btn.btn-primary.waves-effect.waves-light(type="submit") Submit
+      input.form-control.validate(type="password", ng-model="user.pw")
+    button.red.btn.btn-primary.waves-effect.waves-light(type="submit") Submit

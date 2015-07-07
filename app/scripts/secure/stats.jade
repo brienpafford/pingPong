@@ -13,42 +13,64 @@ h3.text-center Leaderboard
 
 
   .row
-    table.hoverable
-      thead
+    .example-base.example-leaderboard.1-demo-container
+      table#leaderboardTable.hoverable
         tr
-          th#data-field Rank
-          th#data-field Name
-          th#data-field Wins
-          th#data-field Losses
-          th#data-field ELO
-        tbody
-          tr
-            td 1
-            td Brien
-            td 24
-            td 7
-            td 2430
-          tr
-            td 2
-            td Noah
-            td 22
-            td 8
-            td 2200
-          tr
-            td 3
-            td Caleb
-            td 14
-            td 10
-            td 1875
-          tr
-            td 4
-            td Greg
-            td 13
-            td 12
-            td 1650
-          tr
-            td 5
-            td Kyle
-            td 12
-            td 11
-            td 890
+          th Player
+          th ELO
+          th Wins
+          th Losses
+        footer
+          .input-field
+            input#nameInput.example-leaderboard-name(type="text", placeholder="Enter Player 1 Name")
+            input#winsInput.example-leaderboard-wins(type="number", placeholder= "Enter Player 1 Wins")
+            input#lossInput.example-leaderboard-loss(type="number", placeholder="Enter Player 1 Losses")
+            input#scoreInput.example-leaderboard-score(type="number", placeholder="Enter Player 1 ELO")
+            input#name2Input.example-leaderboard-name(type="text", placeholder="Enter Player 2 Name")
+            input#wins2Input.example-leaderboard-wins(type="number", placeholder= "Enter Player 2 Wins")
+            input#loss2Input.example-leaderboard-loss(type="number", placeholder="Enter Player 2 Losses")
+            input#score2Input.example-leaderboard-score(type="number", placeholder="Enter Player 2 ELO")
+
+
+
+
+
+    //- table.hoverable
+    //-   thead
+    //-     tr
+    //-       th#data-field Rank
+    //-       th#data-field Name
+    //-       th#data-field Wins
+    //-       th#data-field Losses
+    //-       th#data-field ELO
+    //-     tbody
+    //-       tr
+    //-         td 1
+    //-         td Brien
+    //-         td 24
+    //-         td 7
+    //-         td 2430
+    //-       tr
+    //-         td 2
+    //-         td Noah
+    //-         td 22
+    //-         td 8
+    //-         td 2200
+    //-       tr
+    //-         td 3
+    //-         td Caleb
+    //-         td 14
+    //-         td 10
+    //-         td 1875
+    //-       tr
+    //-         td 4
+    //-         td Greg
+    //-         td 13
+    //-         td 12
+    //-         td 1650
+    //-       tr
+    //-         td 5
+    //-         td Kyle
+    //-         td 12
+    //-         td 11
+    //-         td 890
